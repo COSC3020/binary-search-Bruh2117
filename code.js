@@ -1,11 +1,6 @@
 function binarySearch(list, element) {
-    if (list.length == 0)
-    return -1; 
-    else if (list.length == 1)
-    return list[0]; 
-
-    var left = 0 
-    var right = list.length - 1;
+    var left = 0; 
+    var right = list.length - 1; 
 
     while (left <= right)
     {
@@ -13,10 +8,18 @@ function binarySearch(list, element) {
 
         if (list[mid] == element)
         {
-            return element; 
+            while(mid != 0)
+            {
+                if (list[mid] != element)
+                {
+                    break; 
+                }
+                mid--; 
+            }
+            return mid; 
         }
 
-        if (list[mid] < element)
+        else if (list[mid] < element)
         {
             left = mid + 1; 
         }
@@ -25,5 +28,5 @@ function binarySearch(list, element) {
             right = mid - 1; 
         }
     }
-    return - 1; 
+    return -1; 
 }
